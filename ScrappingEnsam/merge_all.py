@@ -14,7 +14,7 @@ import pandas as pd
 import os
 import glob
 
-INPUT_PATTERN = "features_raw_LOT*.csv"
+INPUT_PATTERN = "Scrapped_Data/features_raw_LOT*.csv"
 OUTPUT_CSV    = "features_merged.csv"
 
 def main():

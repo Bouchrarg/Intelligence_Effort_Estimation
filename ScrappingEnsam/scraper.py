@@ -38,14 +38,14 @@ console = Console()
 # ⚙️  CONFIGURATION — MODIFIER ICI AVANT DE LANCER
 # ══════════════════════════════════════════════════════════════════════════════
 
-GH_TOKEN   = ""   # Ton token GitHub personnel
+GH_TOKEN   =  os.getenv("GH_TOKEN")   # Ton token GitHub personnel
 MEMBER_LOT = 1                         # ← CHANGER : 1, 2, 3 ou 4
 
 #MAX_REPOS = 50
 
-OUTPUT_CSV       = f"features_raw_LOT{MEMBER_LOT}.csv"
-CHECKPOINT_FILE  = f"checkpoint_LOT{MEMBER_LOT}.json"
-CHECKPOINT_EVERY = 30
+OUTPUT_CSV       = f"Scrapped_Data/features_raw_LOT{MEMBER_LOT}.csv"
+CHECKPOINT_FILE  = f"Checkpoints/checkpoint_LOT{MEMBER_LOT}.json"
+CHECKPOINT_EVERY = 10
 
 # ── Seuils qualité ────────────────────────────────────────────────────────────
 MIN_COMMITS       = 50
@@ -708,7 +708,7 @@ def main():
 
     to_process = [r for name, r in all_repos.items() if name not in done]
     #if MAX_REPOS:
-    #    to_process = to_process[:MAX_REPOS]
+        #to_process = to_process[:MAX_REPOS]
     console.print(f"[cyan]{len(to_process)} repos à traiter ({len(done)} déjà faits)[/]\n")
 
     passed = filtered = errors = 0

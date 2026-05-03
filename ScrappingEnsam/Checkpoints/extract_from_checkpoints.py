@@ -28,7 +28,7 @@ def extract_csv_from_checkpoint(checkpoint_file: str) -> str:
 
     # Déduire le numéro de lot depuis le nom du fichier
     lot_num = checkpoint_file.replace("checkpoint_LOT", "").replace(".json", "")
-    output_csv = f"features_raw_LOT{lot_num}.csv"
+    output_csv = f"../Scrapped_Data/features_raw_LOT{lot_num}.csv"
 
     print(f"\n{checkpoint_file}")
     print(f"  Repos analysés   : {len(done)}")
@@ -86,8 +86,8 @@ def main():
         before = len(merged)
         merged = merged.drop_duplicates(subset="full_name", keep="first")
         print(f"Total : {before} → {len(merged)} après déduplication")
-        merged.to_csv("features_merged.csv", index=False)
-        print(f"✓ features_merged.csv créé ({len(merged)} repos)")
+        merged.to_csv("../features_merged.csv", index=False)
+        print(f"✓ ../features_merged.csv créé ({len(merged)} repos)")
     elif len(csv_files) == 1:
         print(f"\n✓ Un seul lot trouvé — CSV disponible : {csv_files[0]}")
         print("  Attends les autres membres pour faire le merge complet.")
