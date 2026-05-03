@@ -1,0 +1,65 @@
+=================================================================
+RÉSUMÉ FEATURES — PRÊT POUR LE ML
+=================================================================
+
+TARGET : log(effort_target)
+  → Transformation log appliquée car distribution très skewed
+  → Pour interpréter les prédictions : exp(y_pred) - 1
+
+FEATURES RETENUES DANS X :
+  Total : 39 features
+
+  active_contributors                           r=+0.687
+  avg_file_size_loc                             r=+nan
+  bus_factor_ratio                              r=-0.415
+  ci_failure_rate                               r=-0.135
+  ci_success_rate                               r=+0.135
+  closed_issues                                 r=+nan
+  code_churn_normalized                         r=+0.334
+  comment_per_pr_avg                            r=+nan
+  commit_velocity_trend                         r=+0.014
+  contributor_productivity                      r=-0.049
+  days_inactive                                 r=-0.320
+  dependency_count                              r=+0.232
+  effort_distribution                           r=+0.415
+  exp_weighted_churn                            r=+0.288
+  has_ci                                        r=+0.255
+  has_tests                                     r=+0.088
+  issue_pr_ratio                                r=-0.179
+  issues_resolution_time_h                      r=-0.198
+  language_diversity                            r=+0.212
+  log_active_contributors                       r=+0.693
+  log_closed_issues                             r=+nan
+  log_code_churn_normalized                     r=+0.772
+  log_dependency_count                          r=+0.243
+  log_issues_resolution_time_h                  r=-0.249
+  log_pr_count_merged                           r=+0.259
+  log_pr_merge_time_median_h                    r=-0.043
+  log_stars                                     r=+0.182
+  log_total_commits                             r=+0.995
+  pr_count_merged                               r=+0.293
+  pr_merge_time_median_h                        r=-0.060
+  pr_per_contributor                            r=-0.509
+  process_maturity                              r=+0.170
+  release_regularity                            r=-0.092
+  reliability_score                             r=+0.640
+  review_cycle_count                            r=+0.150
+  review_effort_proxy                           r=-0.031
+  stars                                         r=+0.156
+  weekend_commit_ratio                          r=-0.241
+  weighted_experience                           r=+0.222
+
+COLONNES EXCLUES (leakage) :
+  ✗ churn_hours
+  ✗ cycle_time_hours
+  ✗ cocomo_hours
+  ✗ cocomo_pm
+  ✗ net_loc
+  ✗ churn_loc
+  ✗ active_days
+
+SPLIT : 80% train (projets anciens) / 20% test (projets récents)
+
+IMPORTANT — Pour interpréter les prédictions ML :
+  y_pred_log → y_pred_heures = exp(y_pred_log) - 1
+  Métriques à utiliser : RMSE sur log, MAE sur log, R²
