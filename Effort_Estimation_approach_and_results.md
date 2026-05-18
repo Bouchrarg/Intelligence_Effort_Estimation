@@ -8,7 +8,6 @@ Le pipeline actuel est composé de trois étapes principales :
 2. Préparation des données et nettoyage
 3. Entraînement du modèle de prédiction (`Effort_Target_formula/train_model.py`)
 
-> Note : le dossier `CleanAndTrain/` est prévu pour une branche séparée. Il ne doit pas être fusionné dans `main` si tu veux garder cette architecture isolée.
 
 ---
 
